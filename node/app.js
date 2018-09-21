@@ -250,10 +250,10 @@ function receivedMessage(event) {
     var quickReplyPayload = quickReply.payload;
     console.log("Quick reply for message %s with payload %s",
       messageId, quickReplyPayload);
-    if (quickReplyPayload === 'YES' {
+    if (quickReplyPayload === 'YES') {
 	    sendQuickReplyLocation(senderID);		
-	} else {
-	    sendTextMessage(senderID, 'See you. Maybe later! ');
+	} else if (quickReplyPayload === 'NO') {
+	    sendTextMessage(senderID, 'Maybe later. Have a nice day!');
 	}
     return;
   } 
