@@ -693,11 +693,13 @@ function sendQuickReply(recipientId) {
       quick_replies: [
         {
           "content_type":"text",
-		  "title":"Let's get started!"
+		  "title":"Let's get started!",
+          "payload":"YES"
         },
 		{
           "content_type":"text",
-		  "title":"No thanks."
+		  "title":"No thanks.",
+          "payload":"NO"
         }
 
       ]
