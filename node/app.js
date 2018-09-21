@@ -343,15 +343,15 @@ function receivedPostback(event) {
 			console.log(errorMessage);			
 		  } else if (results.zip){
 			console.log(JSON.stringify(results, undefined, 2));
-			sendTextMessage(recipientId, results.zip + ' ' + results.country + ', ' + results.city + ' ' + results.street + ' 📧');	
+			sendTextMessage(recipientID, results.zip + ' ' + results.country + ', ' + results.city + ' ' + results.street + ' 📧');	
 		  } else {
-			sendTextMessage(recipientId, results);
+			sendTextMessage(recipientID, results);
 		  }
 		});	  
   } else {
 	// When a postback is called, we'll send a message back to the sender to
 	// let them know it was successful
-	sendQuickReply(recipientId);
+	sendQuickReply(recipientID);
 	  
   }
   
