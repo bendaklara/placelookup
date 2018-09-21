@@ -281,9 +281,9 @@ function receivedMessage(event) {
       default:
 	    sendQuickReply(senderID);
     }
-  } else if (messageAttachments) {
+  } /*else if (messageAttachments) {
     sendTextMessage(senderID, "I only recognize text.");
-  }
+  } */
 }
 
 
