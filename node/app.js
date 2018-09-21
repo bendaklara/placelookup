@@ -292,15 +292,14 @@ function receivedMessage(event) {
 			console.log(errorMessage);			
 		  } else if (results.zip){
 			console.log(JSON.stringify(results, undefined, 2));
-			sendTextMessage(recipientID, results.zip + ' ' + results.country + ', ' + results.city + ' ' + results.street + ' 📧');	
+			sendTextMessage(senderID, results.zip + ' ' + results.country + ', ' + results.city + ' ' + results.street + ' 📧');	
 		  } else {
-			sendTextMessage(recipientID, results);
+			sendTextMessage(senderID, results);
 		  }
-		});	  
-  } 
+		  });	  
+        } 
 	  
 	  
-    sendTextMessage(senderID, "I only recognize text.");
   } 
 }
 
