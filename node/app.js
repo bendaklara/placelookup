@@ -265,8 +265,12 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText.replace(/[^\w\s]/gi, '').trim().toLowerCase()) {
       case 'help':
+        sendTextMessage(senderID, 'I am a simple Geolocation bot. When you share your location, I say your address using MapQuest. Type start or location to get started!');
+        break;
+	  
       case 'START':
-      case 'start':	  
+      case 'start':	
+      case 'location':		  
 	    sendQuickReply(senderID);
         break;
 		
