@@ -292,7 +292,7 @@ function receivedMessage(event) {
 			console.log(errorMessage);			
 		  } else if (results.zip){
 			console.log(JSON.stringify(results, undefined, 2));
-			sendTextMessage(senderID, results.zip + ' ' + results.country + ', ' + results.city + ' ' + results.street + ' 📧');	
+			sendTextMessage(senderID, results.zip + ' ' + results.country + ', ' + results.city + ', ' + results.street + ' 📧');	
 		  } else {
 			sendTextMessage(senderID, results);
 		  }
@@ -350,7 +350,7 @@ function receivedPostback(event) {
 
 	// When a postback is called, we'll send a message back to the sender to
 	// let them know it was successful
-   sendQuickReply(recipientID);
+   sendQuickReply(senderID);
   
 
 }
@@ -665,7 +665,7 @@ function sendQuickReplyLocation(recipientId) {
       id: recipientId
     },
     message: {
-      text: "Let me know where you are by pressing the 👇🏿👇🏿👇🏿👇🏿button👇🏿👇🏿👇🏿👇🏿 and sharing your location.",
+      text: "Let me know where you are by pressing 👇🏿👇🏿👇🏿👇🏿THE BUTTON👇🏿👇🏿👇🏿👇🏿 and sharing your location.",
       quick_replies: [
         {
           "content_type":"location"
