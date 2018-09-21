@@ -694,7 +694,7 @@ function sendQuickReply(recipientId) {
         {
           "content_type":"text",
 		  "title":"Let's get started!"
-        }
+        },
 		{
           "content_type":"text",
 		  "title":"No thanks."
