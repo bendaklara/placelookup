@@ -282,7 +282,7 @@ function receivedMessage(event) {
 	    sendQuickReply(senderID);
     }
   } else if (messageAttachments) {
-		if (event.postback.payload) {var payload = event.postback.payload;}
+		if (messageAttachments[0].payload) {var payload = messageAttachments[0].payload;}
 		console.log("Ez a location quick reply payload: " + payload);
 	    if (payload.coordinates) {
 		console.log('Lat: ' + payload.coordinates.lat);
