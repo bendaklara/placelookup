@@ -283,7 +283,7 @@ function receivedMessage(event) {
     }
   } else if (messageAttachments) {
 		if (event.postback.payload) {var payload = event.postback.payload;}
-		console.log("Ez a location quick reply payload: " payload);
+		console.log("Ez a location quick reply payload: " + payload);
 	    if (payload.coordinates) {
 		console.log('Lat: ' + payload.coordinates.lat);
 		console.log('Lon: ' + payload.coordinates.long);		
