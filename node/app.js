@@ -281,9 +281,27 @@ function receivedMessage(event) {
       default:
 	    sendQuickReply(senderID);
     }
-  } /*else if (messageAttachments) {
+  } else if (messageAttachments) {
+		if (event.postback.payload) {var payload = event.postback.payload;}
+		console.log("Ez a location quick reply payload: " payload);
+	    if (payload.coordinates) {
+		console.log('Lat: ' + payload.coordinates.lat);
+		console.log('Lon: ' + payload.coordinates.long);		
+		geocode.geocodeAddress(KEY, payload.coordinates.lat, payload.coordinates.long, (errorMessage, results) => {
+		  if (errorMessage) {
+			console.log(errorMessage);			
+		  } else if (results.zip){
+			console.log(JSON.stringify(results, undefined, 2));
+			sendTextMessage(recipientID, results.zip + ' ' + results.country + ', ' + results.city + ' ' + results.street + ' 📧');	
+		  } else {
+			sendTextMessage(recipientID, results);
+		  }
+		});	  
+  } 
+	  
+	  
     sendTextMessage(senderID, "I only recognize text.");
-  } */
+  } 
 }
 
 
@@ -331,26 +349,9 @@ function receivedPostback(event) {
   console.log("Received postback for user %d and page %d with payload '%s' " +
   "at %d", senderID, recipientID, payload, timeOfPostback);
 
-
-  if (payload.coordinates) {
-		console.log('Lat: ' + payload.coordinates.lat);
-		console.log('Lon: ' + payload.coordinates.long);		
-		geocode.geocodeAddress(KEY, payload.coordinates.lat, payload.coordinates.long, (errorMessage, results) => {
-		  if (errorMessage) {
-			console.log(errorMessage);			
-		  } else if (results.zip){
-			console.log(JSON.stringify(results, undefined, 2));
-			sendTextMessage(recipientID, results.zip + ' ' + results.country + ', ' + results.city + ' ' + results.street + ' 📧');	
-		  } else {
-			sendTextMessage(recipientID, results);
-		  }
-		});	  
-  } else {
 	// When a postback is called, we'll send a message back to the sender to
 	// let them know it was successful
-	sendQuickReply(recipientID);
-	  
-  }
+   sendQuickReply(recipientID);
   
 
 }
