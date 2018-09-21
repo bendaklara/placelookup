@@ -266,7 +266,7 @@ function receivedMessage(event) {
       case 'start':	  
 	    sendQuickReply(senderID);
         break;
-      case 'Let's get started!':
+      case "Let's get started!":
 	    sendQuickReplyLocation(senderID);
         break;
       case 'No, thanks.':
@@ -693,7 +693,7 @@ function sendQuickReply(recipientId) {
       quick_replies: [
         {
           "content_type":"text",
-		  "title":"Let us get started!"
+		  "title":"Let's get started!"
         }
 		{
           "content_type":"text",
