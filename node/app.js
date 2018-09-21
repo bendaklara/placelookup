@@ -246,14 +246,17 @@ function receivedMessage(event) {
     console.log("Received echo for message %s and app %d with metadata %s",
       messageId, appId, metadata);
     return;
-  } else if (quickReply) {
+  }  else if (quickReply) {
     var quickReplyPayload = quickReply.payload;
     console.log("Quick reply for message %s with payload %s",
       messageId, quickReplyPayload);
-
-    sendTextMessage(senderID, "Quick reply tapped");
+    if (quickReplyPayload === 'YES' {
+	    sendQuickReplyLocation(senderID);		
+	} else {
+	    sendTextMessage(senderID, 'See you. Maybe later! ');
+	}
     return;
-  }
+  } 
 
   if (messageText) {
 
@@ -265,12 +268,6 @@ function receivedMessage(event) {
       case 'START':
       case 'start':	  
 	    sendQuickReply(senderID);
-        break;
-      case "Let's get started!":
-	    sendQuickReplyLocation(senderID);
-        break;
-      case 'No, thanks.':
-	    sendTextMessage(senderID, 'See you. Maybe later! ');
         break;
 		
       case 'privacy':
